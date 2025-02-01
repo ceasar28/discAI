@@ -105,6 +105,9 @@ export class DiscordBot1Service {
   };
 
   handleDirectMessages = async (message) => {
+    if (message.channelId !== process.env.DIRECT_CHAT_CHANNEL_ID) {
+      return;
+    }
     // console.log(message);
     if (message.author.bot) return;
     const agent1 = await this.agentService.agentDirect(
