@@ -86,7 +86,9 @@ export class DiscordBot1Service {
   };
 
   startConversation = async () => {
-    const channel = this.client.channels.cache.get('1332446482036559965');
+    const channel = this.client.channels.cache.get(
+      process.env.NPC_BOT_CHANNEL_ID,
+    );
 
     if (channel?.isTextBased()) {
       const startMessage = await this.agentService.randomStartChat();
