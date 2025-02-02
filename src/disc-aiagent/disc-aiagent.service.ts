@@ -305,9 +305,7 @@ Do not mention any token name, Do not use emojis. Keep responses concise (80 cha
         max_tokens: 150,
       });
 
-      const reply =
-        response.choices[0].message?.content.trim() ||
-        'No witty reply this time!';
+      const reply = response.choices[0].message?.content.trim();
 
       return { reply };
     } catch (error) {
@@ -439,9 +437,7 @@ Do not mention any token name, Do not use emojis. Keep responses concise (80 cha
         max_tokens: 150,
       });
 
-      const reply =
-        response.choices[0].message?.content?.trim() ||
-        'Oops, no clever comeback today.';
+      const reply = response.choices[0].message?.content?.trim();
 
       // Save the conversation
       const saveChat = new this.DirectChatModel({
@@ -454,7 +450,6 @@ Do not mention any token name, Do not use emojis. Keep responses concise (80 cha
       return { reply };
     } catch (error) {
       console.error('Error in agent1:', error);
-      return { reply: 'Something went wrong, try again later!' };
     }
   }
 
@@ -694,9 +689,7 @@ If the topic involves a token, you can briefly mention it, but avoid deep detail
         max_tokens: 150,
       });
 
-      const reply =
-        response.choices[0].message?.content?.trim() ||
-        'oops, no clever comeback today';
+      const reply = response.choices[0].message?.content?.trim();
 
       const saveChat = new this.ChatModel({
         contentB: message,
@@ -707,7 +700,6 @@ If the topic involves a token, you can briefly mention it, but avoid deep detail
       return { reply };
     } catch (error) {
       console.error('Error in agent1:', error);
-      return { reply: 'something went wrong, try again later' };
     }
   }
 
@@ -735,9 +727,7 @@ If the topic involves a token, you can briefly mention it, but avoid deep detail
         max_tokens: 150,
       });
 
-      const reply =
-        response.choices[0].message?.content?.trim() ||
-        'oops, no witty comeback this time';
+      const reply = response.choices[0].message?.content?.trim();
 
       const saveChat = new this.ChatModel({
         contentA: message,
@@ -748,7 +738,6 @@ If the topic involves a token, you can briefly mention it, but avoid deep detail
       return { reply };
     } catch (error) {
       console.error('Error in agent2:', error);
-      return { reply: "something's off, let's try again later" };
     }
   }
 
